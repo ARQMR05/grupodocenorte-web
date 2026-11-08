@@ -1,0 +1,840 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Grupo Doce Norte AEC · Arquitectura, Ingeniería y Construcción en Nicaragua</title>
+<meta name="description" content="Grupo Doce Norte AEC: cinco arquitectos e ingenieros de la UNI. Diseño, cálculo, construcción, supervisión, consultorías y estudios de factibilidad en toda Nicaragua.">
+<meta property="og:title" content="Grupo Doce Norte AEC">
+<meta property="og:description" content="Arquitectura, ingeniería y construcción desde el paralelo 12° Norte. Managua, Nicaragua.">
+<meta property="og:url" content="https://grupodocenorte.com">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1E2124">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://grupodocenorte.com/">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: prototipo 01 contado con el scroll. Dos historias con dibujo fijo (del globo a Managua y del terreno a la obra), proyectos en recorrido horizontal y el resto en franjas tipo lámina. */
+:root{
+  --bg:#F0EFEB; --surface:#FFFFFF; --fg:#1E2124; --muted:#5D6265; --line:#D6D5CF;
+  --band:#1E2124; --on-band:#EDECE7; --band-muted:#A9AEB0; --band-line:#3A3F43;
+  --concreto:#E3E1DB; --arena:#B9B3A6; --lago:#2E5E6E; --lago-hi:#244C59; --on-lago:#F3F2EE;
+  --glass:rgba(46,94,110,.18); --gridline:rgba(30,33,36,.05);
+  --navh:58px;
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --body:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#16191B; --surface:#1E2225; --fg:#ECEBE6; --muted:#9DA3A6; --line:#2E3336;
+  --band:#0F1112; --on-band:#ECEBE6; --band-muted:#9DA3A6; --band-line:#2A2E31;
+  --concreto:#2A2E31; --arena:#6C675D; --lago:#6FA0AF; --lago-hi:#88B4C1; --on-lago:#0F1112; --glass:rgba(111,160,175,.18); --gridline:rgba(236,235,230,.04); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#16191B; --surface:#1E2225; --fg:#ECEBE6; --muted:#9DA3A6; --line:#2E3336;
+  --band:#0F1112; --on-band:#ECEBE6; --band-muted:#9DA3A6; --band-line:#2A2E31;
+  --concreto:#2A2E31; --arena:#6C675D; --lago:#6FA0AF; --lago-hi:#88B4C1; --on-lago:#0F1112; --glass:rgba(111,160,175,.18); --gridline:rgba(236,235,230,.04); color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--lago);outline-offset:3px}
+.in{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--mono)}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance}
+h2{font-size:clamp(28px,4vw,42px);line-height:1.08;font-weight:700;font-variation-settings:"wdth" 112;letter-spacing:.005em}
+h3{font-size:20px;font-weight:600;font-variation-settings:"wdth" 105}
+p{margin:0}
+
+/* Barra superior con avance de lectura */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--band)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--band);color:var(--on-band);border-bottom:1px solid var(--band-line)}
+.top .in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:11px;min-height:var(--navh)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;--acc:#6FA0AF}
+.brand svg{width:34px;height:33px}
+.brand b{font-family:var(--display);font-variation-settings:"wdth" 115;letter-spacing:.08em;font-size:15px}
+.brand small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--band-muted);font-weight:400}
+nav{display:flex;gap:4px 20px;flex-wrap:wrap;font-size:14px}
+nav a{text-decoration:none;color:var(--band-muted);padding:4px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+nav a:hover,nav a.cur{color:var(--on-band)}
+nav a.cur{border-color:#6FA0AF}
+@media (max-width:820px){nav{display:none}}
+.lang{font-family:var(--mono);font-size:12px;color:var(--band-muted);border:1px solid var(--band-line);padding:4px 8px;border-radius:2px;background:none;cursor:pointer}
+.lang b{color:var(--on-band)}
+.prog{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:#6FA0AF;transform-origin:0 50%;transform:scaleX(0)}
+
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;padding:13px 20px;border-radius:2px;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:var(--body)}
+.btn.primary{background:#6FA0AF;color:#0F1112}
+.btn.primary:hover{background:#88B4C1}
+.btn.ghost{border-color:var(--band-line);color:var(--on-band)}
+.btn.ghost:hover{border-color:var(--band-muted)}
+.btn svg{width:18px;height:18px}
+
+/* Motor de historias: texto que corre, dibujo fijo */
+.story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px}
+.story .fig{position:sticky;top:calc(var(--navh) + env(safe-area-inset-top,0px));height:calc(100vh - var(--navh));align-self:start;display:flex;align-items:center;justify-content:center}
+.story .fig svg{width:100%;max-height:82vh;height:auto;display:block;overflow:visible}
+.beat{min-height:88vh;display:flex;flex-direction:column;justify-content:center;gap:16px;transition:opacity .5s}
+.js .beat:not(.act){opacity:.32}
+.beat:last-child{min-height:80vh}
+.beat .k{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+@media (max-width:820px){
+  .story{display:flex;flex-direction:column}
+  .story .fig{order:-1;height:46vh;z-index:2;padding-block:10px}
+  .story .fig svg{max-height:42vh}
+  .beat{min-height:70vh;justify-content:flex-start;padding-top:8vh;position:relative;z-index:1}
+  .js .beat:not(.act){opacity:.18}
+}
+
+/* Historia 1: del globo a Managua */
+.hero{background:var(--band);color:var(--on-band)}
+.hero .story{padding-block:0 40px}
+@media (max-width:820px){.hero .fig{background:var(--band)}}
+.hero h1{font-size:clamp(38px,5.8vw,74px);line-height:.98;font-weight:700;font-variation-settings:"wdth" 120;letter-spacing:-.005em}
+.hero h1 em,.hero .hl{font-style:normal;color:#6FA0AF}
+.hero h2{font-size:clamp(28px,3.6vw,44px)}
+.hero .beat p{color:var(--band-muted);max-width:50ch;font-size:18px}
+.hero .beat .k{color:#6FA0AF}
+.hero .beat:first-child{min-height:calc(100vh - var(--navh) - 34px);padding-top:24px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px}
+.coords{display:flex;gap:24px;flex-wrap:wrap;margin-top:24px;padding-top:18px;border-top:1px solid var(--band-line);font-family:var(--mono);font-size:12px;color:var(--band-muted);letter-spacing:.06em}
+.coords b{display:block;color:var(--on-band);font-weight:500;font-size:14px}
+.scrollhint{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--band-muted);display:flex;align-items:center;gap:10px;margin-top:22px}
+.scrollhint i{width:1px;height:28px;background:var(--band-muted);display:block;animation:hint 1.8s ease-in-out infinite;transform-origin:top}
+@keyframes hint{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(0);transform-origin:bottom}}
+.fig1{color:var(--on-band);--acc:#6FA0AF}
+.fig1 .grid line{stroke:var(--band-line)}
+.fig1 .grid{transition:opacity .8s}
+.fig1[data-step="3"] .grid{opacity:.35}
+.fig1 .world{transform-box:view-box;transform-origin:0 0;transition:transform 1.2s cubic-bezier(.6,0,.2,1)}
+.fig1[data-step="2"] .world{transform:translate(-99.6px,-114.3px) scale(1.6)}
+.fig1[data-step="3"] .world{transform:translate(82.86px,59.89px) scale(.5857)}
+.fig1 .world .thin{transition:stroke-width 1.2s}
+.fig1 .ly{opacity:0;transition:opacity .7s}
+.fig1 .ly.on{opacity:1}
+.fig1 .pulse circle{transform-box:fill-box;transform-origin:center;animation:pulse 2.4s ease-out infinite}
+.fig1 .pulse circle:nth-child(2){animation-delay:1.2s}
+@keyframes pulse{0%{transform:scale(.4);opacity:.9}100%{transform:scale(3);opacity:0}}
+.fig1 .ring circle{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.4s ease}
+.fig1 .ring.on circle{stroke-dashoffset:0}
+.fig1 .sq rect{opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.2);transition:opacity .35s,transform .35s}
+.fig1 .sq.on rect{opacity:1;transform:none}
+.fig1 .sq.on rect:nth-child(2){transition-delay:.15s}.fig1 .sq.on rect:nth-child(3){transition-delay:.3s}.fig1 .sq.on rect:nth-child(4){transition-delay:.45s}.fig1 .sq.on rect:nth-child(5){transition-delay:.6s}
+
+/* Secciones */
+section{padding-block:88px}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:24px 56px;align-items:end;margin-bottom:44px}
+.sec-head .k{display:flex;flex-direction:column;gap:14px}
+.sec-head p{color:var(--muted);max-width:56ch}
+@media (max-width:820px){.sec-head{grid-template-columns:1fr}}
+
+/* Servicios: las líneas se trazan al entrar */
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));position:relative}
+.services::before{content:"";position:absolute;left:0;right:0;top:0;height:1.5px;background:var(--fg);transform-origin:0 50%;transition:transform 1.1s cubic-bezier(.6,0,.2,1)}
+.js .services:not(.seen)::before{transform:scaleX(0)}
+.svc{padding:26px 24px 30px 0;border-bottom:1px solid var(--line);display:grid;gap:10px;align-content:start;min-width:0;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .services:not(.seen) .svc{transform:translateY(18px)}
+.services.seen .svc:nth-child(2){transition-delay:.1s}.services.seen .svc:nth-child(3){transition-delay:.2s}.services.seen .svc:nth-child(4){transition-delay:.3s}
+.svc .tag{font-family:var(--display);font-size:34px;line-height:1;font-weight:700;font-variation-settings:"wdth" 120;color:var(--lago)}
+.svc p{color:var(--muted);font-size:16px}
+.svc ul{margin:4px 0 0;padding:0;list-style:none;display:grid;gap:4px;font-size:14.5px}
+.svc li::before{content:"— ";color:var(--arena)}
+
+/* Historia 2: del terreno a la obra */
+.process{border-top:1px solid var(--line)}
+.process .head{padding-top:88px}
+.process .beat h3{font-size:clamp(26px,3vw,36px);font-variation-settings:"wdth" 112;font-weight:700}
+.process .beat p{color:var(--muted);max-width:46ch}
+.process .beat .k{color:var(--lago)}
+.process .beat ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.process .beat li{font-family:var(--mono);font-size:12px;border:1px solid var(--line);padding:3px 8px;border-radius:2px;color:var(--muted)}
+.process .qa{margin:0;display:grid;border-top:1px solid var(--line);max-width:46ch}
+.process .qa div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
+.process .qa dt{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--lago);padding-top:3px}
+.process .qa dd{margin:0;font-size:15.5px}
+.fig2 .sheetwrap{width:100%;background:var(--surface);border:1px solid var(--line);position:relative}
+.fig2 .tb{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;border-top:1px solid var(--line);padding:9px 14px;font-family:var(--mono);font-size:11.5px;color:var(--muted);letter-spacing:.04em}
+.fig2 .tb b{color:var(--fg);font-weight:500}
+.fig2 .bar{height:3px;background:var(--line)}
+.fig2 .bar i{display:block;height:100%;background:var(--lago);width:25%;transition:width .8s cubic-bezier(.6,0,.2,1)}
+.fig2 svg{color:var(--fg)}
+.fig2 svg.flow{color:var(--fg)}
+.fig2 .trail{stroke:var(--line)}
+.fig2 .trail-on{stroke:var(--lago);stroke-dasharray:1;stroke-dashoffset:1}
+.fig2 .trav{fill:var(--lago)}
+.fig2 .nd circle{fill:var(--surface);stroke:var(--line);transition:fill .4s,stroke .4s}
+.fig2 .nd text{fill:var(--muted);transition:fill .4s}
+.fig2 .nd.done circle{fill:var(--lago);stroke:var(--lago)}
+.fig2 .nd.done text{fill:var(--on-lago)}
+.fig2 .orbit{stroke:var(--arena);animation:orbit 40s linear infinite}
+@keyframes orbit{to{stroke-dashoffset:-450}}
+.fig2 .stage{opacity:0;transition:opacity .45s}
+.fig2 .stage.on{opacity:1}
+.fig2 .link{stroke:var(--lago)}
+.fig2 .core{transform-box:fill-box;transform-origin:center;transform:scale(.6) rotate(-20deg);transition:transform .8s cubic-bezier(.3,1.4,.5,1)}
+.fig2 .stage.on .core{transform:none}
+.fig2 .core circle{fill:var(--surface);stroke:var(--lago)}
+.fig2 .core use{color:var(--lago)}
+.fig2 .cap{font-family:var(--mono);font-size:13px;letter-spacing:.14em;fill:var(--fg)}
+.fig2 .it{opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.3) translateY(14px);transition:opacity .4s,transform .6s cubic-bezier(.3,1.5,.5,1)}
+.fig2 .stage.on .it{opacity:1;transform:none;transition-delay:calc(var(--i) * 110ms + .35s)}
+.fig2 .it circle{fill:var(--surface);stroke:var(--fg)}
+.fig2 .it use{color:var(--fg)}
+.fig2 .lb{font-family:var(--mono);font-size:12px;fill:var(--muted)}
+.fig2 .ly{opacity:0;transition:opacity .8s}
+.fig2 .ly.on{opacity:1}
+.fig2 .ly.dim{opacity:.22}
+.fig2 .dw{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.3s cubic-bezier(.6,0,.2,1)}
+.fig2 .ly.on .dw,.fig2 .ly.dim .dw{stroke-dashoffset:0}
+.fig2 .lago{stroke:var(--lago)}
+@media (max-width:820px){.process .fig{background:var(--bg)}.fig2 .tb{display:none}}
+
+/* Proceso a página completa: una línea sinuosa recorre la sección */
+.flowsec{position:relative;background:var(--concreto);overflow:hidden;padding-block:96px 140px;border-top:1px solid var(--line)}
+.flowsec::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--gridline) 1px,transparent 1px),linear-gradient(90deg,var(--gridline) 1px,transparent 1px);background-size:64px 64px;pointer-events:none}
+.flowsec .in{position:relative;z-index:1}
+.flowpath{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:visible}
+.flowpath .base{fill:none;stroke:var(--arena);stroke-width:2;stroke-dasharray:2 9;stroke-linecap:round}
+.flowpath .live{fill:none;stroke:var(--lago);stroke-width:4;stroke-linecap:round}
+.flowpath .dot{fill:var(--lago)}
+.flowpath .halo{fill:var(--lago);opacity:.18;transform-box:fill-box;transform-origin:center;animation:halo 1.8s ease-out infinite}
+@keyframes halo{0%{transform:scale(.6);opacity:.35}100%{transform:scale(2.2);opacity:0}}
+.station{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:56px;align-items:center;min-height:92vh;padding-block:40px}
+.station:nth-of-type(even) .st-art{order:2}
+.st-art{position:relative;z-index:2}
+.bignum{position:absolute;top:-14%;left:-3%;font-family:var(--display);font-weight:800;font-variation-settings:"wdth" 125;font-size:clamp(150px,22vw,300px);line-height:1;color:transparent;-webkit-text-stroke:1.5px var(--arena);z-index:-1;user-select:none;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.station:nth-of-type(even) .bignum{left:auto;right:-3%}
+.station:not(.on) .bignum{transform:translateY(40px)}
+.orb{width:100%;height:auto;display:block;overflow:visible;color:var(--fg)}
+.orb .orbit{stroke:var(--arena);animation:orbit 40s linear infinite}
+@keyframes orbit{to{stroke-dashoffset:-450}}
+.orb .core{transform-box:fill-box;transform-origin:center;transition:transform .9s cubic-bezier(.3,1.4,.5,1)}
+.js .station:not(.on) .core{transform:scale(.55) rotate(-25deg)}
+.orb .core circle{fill:var(--surface);stroke:var(--lago)}
+.orb .core use{color:var(--lago)}
+.orb .cap{font-family:var(--mono);font-size:14px;letter-spacing:.16em;fill:var(--fg)}
+.orb .it{transform-box:fill-box;transform-origin:center;transition:opacity .45s,transform .7s cubic-bezier(.3,1.5,.5,1);transition-delay:calc(var(--i) * 120ms + .3s)}
+.js .station:not(.on) .it{opacity:0;transform:scale(.2) translateY(30px);transition-delay:0s}
+.orb .it circle{fill:var(--surface);stroke:var(--fg)}
+.orb .it use{color:var(--fg)}
+.orb .lb{font-family:var(--mono);font-size:12.5px;fill:var(--muted)}
+.st-txt{position:relative;z-index:2;display:grid;gap:16px;align-content:center;transition:opacity .8s,transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .station:not(.on) .st-txt{opacity:.3;transform:translateY(24px)}
+.st-txt .k{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--lago)}
+.st-txt h3{font-size:clamp(28px,3.4vw,40px);font-variation-settings:"wdth" 112;font-weight:700;line-height:1.08}
+.st-txt p{color:var(--muted);max-width:46ch}
+.st-txt ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.st-txt li{font-family:var(--mono);font-size:12px;border:1px solid var(--line);background:var(--bg);padding:3px 8px;border-radius:2px;color:var(--muted)}
+.st-txt .qa{margin:0;display:grid;border-top:1px solid var(--line);max-width:46ch}
+.st-txt .qa div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
+.st-txt .qa dt{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--lago);padding-top:3px}
+.st-txt .qa dd{margin:0;font-size:15.5px}
+@media (max-width:820px){
+  .station{grid-template-columns:1fr;min-height:0;gap:20px;padding-block:56px}
+  .station:nth-of-type(even) .st-art{order:0}
+  .bignum{font-size:130px;top:-8%}
+  .st-txt{background:var(--concreto);padding:18px 16px;margin-inline:-16px;box-shadow:0 0 0 1px var(--line)}
+}
+
+/* Proyectos en recorrido horizontal */
+.projects{background:var(--concreto);padding-block:0}
+.hs-sticky{padding-block:72px}
+.hs.pin .hs-sticky{position:sticky;top:calc(var(--navh) + env(safe-area-inset-top,0px));height:calc(100vh - var(--navh));overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding-block:24px}
+.hs .sec-head{margin-bottom:32px}
+.track{display:flex;gap:18px;will-change:transform}
+.hs:not(.pin) .track{flex-direction:column}
+.proj{background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;min-width:0;flex:0 0 auto}
+.hs.pin .proj{width:min(500px,62vw)}
+.hs.pin .proj.feat{width:min(680px,72vw)}
+.ph{position:relative;aspect-ratio:16/10;max-width:100%;background:var(--band);color:var(--band-muted);overflow:hidden}
+.hs.pin .ph{aspect-ratio:auto;height:min(40vh,380px)}
+.ph svg{position:absolute;inset:0;width:100%;height:100%}
+.ph .ph-note{position:absolute;left:12px;bottom:10px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--band-muted);background:rgba(15,17,18,.6);padding:3px 7px}
+.ph .num{position:absolute;right:14px;top:10px;font-family:var(--mono);font-size:12px;color:var(--band-muted)}
+.pinfo{padding:18px 20px 20px;display:grid;gap:8px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.pinfo p{color:var(--muted);font-size:15.5px}
+.hs-count{display:flex;align-items:center;gap:14px;margin-top:22px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.hs-count .rail{flex:1;max-width:240px;height:2px;background:var(--line)}
+.hs-count .rail i{display:block;height:100%;width:0;background:var(--lago)}
+.hs:not(.pin) .hs-count{display:none}
+
+/* Sectores */
+.sectors-sec{background:var(--band);color:var(--on-band)}
+.sectors-sec .sec-head p,.sectors-sec .label{color:var(--band-muted)}
+.sectors{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1.5px solid var(--on-band)}
+.sector{padding:24px 22px 28px 0;display:grid;gap:14px;align-content:start;min-width:0;border-right:1px solid var(--band-line);padding-left:22px;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.sector:first-child{padding-left:0}.sector:last-child{border-right:0}
+.js .sectors:not(.seen) .sector{transform:translateY(18px)}
+.sectors.seen .sector:nth-child(2){transition-delay:.1s}.sectors.seen .sector:nth-child(3){transition-delay:.2s}.sectors.seen .sector:nth-child(4){transition-delay:.3s}
+.sector .no{font-family:var(--mono);font-size:12px;color:#6FA0AF;letter-spacing:.1em}
+.sector svg{width:52px;height:52px;color:#6FA0AF}
+.sector h3{font-size:22px}
+.sector ul{margin:0;padding:0;list-style:none;display:grid;gap:0}
+.sector li{padding:8px 0;border-top:1px solid var(--band-line);font-size:15.5px;color:#C9CBC8}
+@media (max-width:980px){.sectors{grid-template-columns:repeat(2,minmax(0,1fr))}.sector{border-right:0;padding-left:0;border-bottom:1px solid var(--band-line)}}
+@media (max-width:560px){.sectors{grid-template-columns:1fr}}
+
+/* Licitaciones */
+.bids{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start}
+.bids .txt{display:grid;gap:16px;color:var(--muted)}
+.bids .txt strong{color:var(--fg)}
+.btn.inv{background:var(--lago);color:var(--on-lago)}
+.btn.inv:hover{background:var(--lago-hi)}
+.checklist{list-style:none;margin:0;padding:0;border:1px solid var(--line);background:var(--surface)}
+.checklist li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;padding:14px 18px;border-bottom:1px solid var(--line);font-size:15.5px}
+.checklist li:last-child{border-bottom:0}
+.checklist li::before{content:"";width:12px;height:12px;border:1.5px solid var(--lago);margin-top:6px;transition:background .3s}
+.checklist.seen li::before{background:var(--lago)}
+.checklist.seen li:nth-child(2)::before{transition-delay:.15s}.checklist.seen li:nth-child(3)::before{transition-delay:.3s}.checklist.seen li:nth-child(4)::before{transition-delay:.45s}.checklist.seen li:nth-child(5)::before{transition-delay:.6s}
+@media (max-width:860px){.bids{grid-template-columns:1fr}}
+
+/* Nosotros */
+.about{background:var(--band);color:var(--on-band)}
+.about .sec-head p,.about .label{color:var(--band-muted)}
+.partners{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:12px}
+.partner{border:1px solid var(--band-line);padding:18px;display:grid;gap:14px;align-content:start;transition:border-color .3s}
+.partner:hover{border-color:#6FA0AF}
+.partner .row{display:flex;justify-content:space-between;align-items:flex-start}
+.mono-av{width:56px;height:56px;border:1.5px solid #6FA0AF;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:600;font-variation-settings:"wdth" 115;letter-spacing:.06em;color:#6FA0AF}
+.five{display:flex;gap:3px}
+.five i{width:7px;height:7px;background:var(--band-line);transition:background .4s}
+.partners.seen .five i.me{background:#6FA0AF}
+.partner b{font-weight:600;display:block}
+.partner span{font-family:var(--mono);font-size:12px;color:var(--band-muted)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:24px;margin-top:48px;padding-top:28px;border-top:1px solid var(--band-line)}
+.facts div{display:grid;gap:4px}
+.facts b{font-family:var(--display);font-size:22px;font-variation-settings:"wdth" 112}
+.facts span{color:var(--band-muted);font-size:15px}
+
+/* Contacto */
+.contact .in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:48px}
+@media (max-width:860px){.contact .in{grid-template-columns:1fr}}
+.cinfo{display:grid;gap:22px;align-content:start}
+.cinfo p{color:var(--muted)}
+.channel{display:grid;gap:2px;border-top:1px solid var(--line);padding-top:14px}
+.channel b{font-size:18px;font-weight:600;user-select:all}
+form{background:var(--surface);border:1px solid var(--line);padding:26px;display:grid;gap:16px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:520px){.row2{grid-template-columns:1fr}}
+label{display:grid;gap:6px;font-size:14px;font-weight:500}
+input,select,textarea{font:inherit;font-size:16px;padding:11px 12px;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:2px;width:100%;min-width:0}
+textarea{min-height:110px;resize:vertical}
+form .btn.primary{background:var(--lago);color:var(--on-lago);justify-self:start}
+form .btn.primary:hover{background:var(--lago-hi)}
+.sent{font-size:14px;color:var(--lago);font-weight:500}
+
+.wa{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:8;display:flex;align-items:center;gap:8px;background:#1F7A4D;color:#fff;text-decoration:none;font-weight:600;font-size:14px;padding:12px 16px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.22)}
+.wa svg{width:20px;height:20px}
+footer.site{background:var(--band);color:var(--band-muted);font-size:14px}
+footer.site .in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-block:30px 90px;align-items:center}
+footer.site .brand{color:var(--on-band)}
+.proto{background:var(--lago);color:var(--on-lago);font-family:var(--mono);font-size:12px;text-align:center;padding:7px 16px;letter-spacing:.04em}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="sym">
+      <polygon points="50,2 58,19 50,15.5 42,19" fill="currentColor"/>
+      <circle cx="50" cy="58" r="34" fill="none" stroke="currentColor" stroke-width="5"/>
+      <line x1="4" y1="50.9" x2="96" y2="50.9" stroke="currentColor" stroke-width="2.6"/>
+      <circle cx="38" cy="50.9" r="5.2" fill="var(--acc,#6FA0AF)"/>
+    </g>
+    <path id="arcTop" d="M 18,100 A 82,82 0 0 1 182,100"/>
+    <path id="arcBot" d="M 10,100 A 90,90 0 0 0 190,100"/>
+    <symbol id="wa-ico" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4V5z"/><path d="M8 9h8M8 12.5h5"/></symbol>
+    <symbol id="i-tri" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16L4 4v16z"/><path d="M8 16h4.5L8 11.5V16z"/></symbol>
+    <symbol id="i-frame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4M19 21V4M3 4h18M3 12.5h18M3 21h4M17 21h4"/><path d="M5 12.5 19 4" stroke-width="1"/></symbol>
+    <symbol id="i-helmet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18M5 17a7 7 0 0 1 14 0M12 10V7M9 10.5V8.5M15 10.5V8.5"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21h16M6 21V8l6-4 6 4v13M10 21v-5h4v5M9 11h1M14 11h1"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18"/><path d="m8 8 1.5 1.5L12 7M14 8.5h2M8 13l1.5 1.5L12 12M14 13.5h2M8 18h8"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-6.2-6-11a6 6 0 0 1 12 0c0 4.8-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></symbol>
+    <symbol id="i-coin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M14.5 9c-.5-1-1.5-1.5-2.5-1.5-1.5 0-2.5.8-2.5 2s1 1.7 2.5 2 2.5.8 2.5 2-1 2-2.5 2c-1.1 0-2-.5-2.5-1.5M12 6v1.5M12 16.5V18"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5.5 5.5"/></symbol>
+    <symbol id="i-topo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17c3-2 6-2 9 0s6 2 9 0M5 12c2-2 5-3 7-3s5 1 7 3M8 7.5c1.5-1 2.7-1.5 4-1.5s2.5.5 4 1.5"/></symbol>
+    <symbol id="i-soil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18M3 10h18M3 15h18M3 20h18"/><path d="M7 7.5h.01M15 12.5h.01M10 17.5h.01M18 17.5h.01M5 12.5h.01" stroke-width="2.4"/></symbol>
+    <symbol id="i-seismic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2-5 3 10 3-14 3 13 2-4h3"/></symbol>
+    <symbol id="i-drop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11z"/><path d="M9.5 15a2.5 2.5 0 0 0 2.5 2.5"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></symbol>
+    <symbol id="i-pencil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21h16M5 16l9-9 3 3-9 9H5v-3zM12.5 8.5l3 3"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 5 13h6l-1 9 8-11h-6l1-9z"/></symbol>
+    <symbol id="i-faucet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h9a4 4 0 0 1 4 4v2M3 4v6M14 13h4M16 16v1M16 19.5v1"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></symbol>
+    <symbol id="i-calc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.5" width="14" height="19" rx="1"/><rect x="8" y="5.5" width="8" height="4"/><path d="M8.5 13h1M11.5 13h1M14.5 13h1M8.5 16.5h1M11.5 16.5h1M14.5 16.5h1"/></symbol>
+    <symbol id="i-gantt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M6 7h6M9 11h8M12 15h7" stroke-width="2.6"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-crane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V4M3 21h8M6 4h15M6 4l3 3M6 8l4-4M18 4v6M16.5 10h3v2.5h-3z"/></symbol>
+    <symbol id="i-asbuilt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18"/><path d="M7 8h6M7 11h10M7 14h5M13 17l2 2 4-4.5"/></symbol>
+  </defs>
+</svg>
+
+<div class="proto">Sitio en construcción · Pronto publicaremos nuestros proyectos y datos de contacto</div>
+
+<header class="top">
+  <div class="in">
+    <a class="brand" href="#inicio" aria-label="Grupo Doce Norte, inicio">
+      <svg viewBox="0 0 100 96" aria-hidden="true" style="color:var(--on-band)"><use href="#sym"/></svg>
+      <span><b>DOCE NORTE</b><small>GRUPO · AEC</small></span>
+    </a>
+    <nav aria-label="Secciones">
+      <a href="#servicios">Servicios</a>
+      <a href="#sectores">Sectores</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#licitaciones">Licitaciones</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <button class="lang" id="lang" type="button" aria-label="Idioma" title="Español / English"><b>ES</b> / EN</button>
+  </div>
+  <i class="prog" id="prog" aria-hidden="true"></i>
+</header>
+
+<main>
+<!-- HISTORIA 1 -->
+<div class="hero" id="inicio">
+  <div class="in story" data-story>
+    <div class="beats">
+      <div class="beat act" data-step="1">
+        <span class="k">Arquitectura · Ingeniería · Construcción</span>
+        <h1>Diseñamos y construimos desde el <em>paralelo 12° Norte</em>.</h1>
+        <p>Somos cinco arquitectos e ingenieros formados en la UNI que se unieron en un solo equipo. Diseñamos, calculamos y construimos viviendas, proyectos comerciales y obra pública en toda Nicaragua.</p>
+        <div class="cta">
+          <a class="btn primary" href="#contacto"><svg aria-hidden="true"><use href="#wa-ico"/></svg>Cotiza tu proyecto</a>
+          <a class="btn ghost" href="#proyectos">Ver proyectos</a>
+        </div>
+        <div class="scrollhint"><i></i>Desliza para conocer el norte</div>
+      </div>
+      <div class="beat" data-step="2">
+        <span class="k">12°08′ N · 86°15′ O</span>
+        <h2>Una línea cruza Nicaragua y pasa por <span class="hl">Managua</span>.</h2>
+        <p>Es el paralelo 12° Norte. Sobre él nos formamos en la Universidad Nacional de Ingeniería, y desde aquí trabajamos para todo el país, del Pacífico al Caribe.</p>
+        <div class="coords"><span><b>12°08′ N</b>Latitud</span><span><b>86°15′ O</b>Longitud</span><span><b>Managua</b>Nicaragua</span></div>
+      </div>
+      <div class="beat" data-step="3">
+        <span class="k">Grupo Doce Norte AEC</span>
+        <h2>La flecha que marca el norte en cada plano, y <span class="hl">cinco socios</span> en un mismo sello.</h2>
+        <p>Cada cuadro del sello es uno de nosotros. Juntos firmamos el diseño, el cálculo y la obra, con un solo responsable de principio a fin.</p>
+      </div>
+    </div>
+    <div class="fig fig1" data-step="1" aria-hidden="true">
+      <svg viewBox="0 0 400 400">
+        <g class="grid" stroke-width="1">
+          <line x1="0" y1="80" x2="400" y2="80"/><line x1="0" y1="160" x2="400" y2="160"/><line x1="0" y1="240" x2="400" y2="240"/><line x1="0" y1="320" x2="400" y2="320"/>
+          <line x1="80" y1="0" x2="80" y2="400"/><line x1="160" y1="0" x2="160" y2="400"/><line x1="240" y1="0" x2="240" y2="400"/><line x1="320" y1="0" x2="320" y2="400"/>
+        </g>
+        <g class="world"><use href="#sym" transform="translate(60,48) scale(2.8)"/></g>
+        <text class="ly" data-from="1" data-until="1" x="338" y="186" font-family="IBM Plex Mono, monospace" font-size="12" fill="#6FA0AF">12°N</text>
+        <g class="ly pulse" data-from="2" data-until="2" fill="none" stroke="#6FA0AF" stroke-width="1.5"><circle cx="166" cy="190.5" r="14"/><circle cx="166" cy="190.5" r="14"/></g>
+        <g class="ly" data-from="2" data-until="2" font-family="IBM Plex Mono, monospace">
+          <line x1="166" y1="190.5" x2="226" y2="250" stroke="#6FA0AF" stroke-width="1"/>
+          <rect x="226" y="240" width="150" height="54" fill="#0F1112" stroke="#6FA0AF" stroke-width="1"/>
+          <text x="238" y="262" font-size="13" fill="currentColor" letter-spacing="1.5">MANAGUA</text>
+          <text x="238" y="282" font-size="10.5" fill="#6FA0AF">12°08′N · 86°15′O</text>
+        </g>
+        <g transform="scale(2)">
+          <g class="ly ring" data-from="3" fill="none" stroke="currentColor">
+            <circle cx="100" cy="100" r="97" stroke-width="3" pathLength="1"/>
+            <circle cx="100" cy="100" r="74" stroke-width="1.2" pathLength="1"/>
+          </g>
+          <g class="ly" data-from="3">
+            <text font-family="Archivo, Arial, sans-serif" font-weight="700" font-size="13" letter-spacing="3.2" fill="currentColor" style="font-variation-settings:'wdth' 112"><textPath href="#arcTop" startOffset="50%" text-anchor="middle">GRUPO DOCE NORTE</textPath></text>
+            <text font-family="IBM Plex Mono, monospace" font-size="7.6" letter-spacing="1.6" fill="currentColor"><textPath href="#arcBot" startOffset="50%" text-anchor="middle">ARQUITECTURA · INGENIERÍA · CONSTRUCCIÓN</textPath></text>
+            <circle cx="15" cy="100" r="2.6" fill="#6FA0AF"/><circle cx="185" cy="100" r="2.6" fill="#6FA0AF"/>
+            <text x="100" y="146" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="7" letter-spacing=".8" fill="currentColor">12°08′N · 86°15′W</text>
+            <text x="100" y="168" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="600" font-size="9" letter-spacing="3" fill="currentColor">AEC</text>
+          </g>
+          <g class="ly sq" data-from="3" fill="currentColor"><rect x="81.5" y="153" width="4" height="4"/><rect x="89.5" y="153" width="4" height="4"/><rect x="97.5" y="153" width="4" height="4"/><rect x="105.5" y="153" width="4" height="4"/><rect x="113.5" y="153" width="4" height="4"/></g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<section id="servicios">
+  <div class="in">
+    <div class="sec-head">
+      <div class="k"><span class="label">Servicios</span><h2>Un solo equipo, del primer trazo a la entrega de llaves</h2></div>
+      <p>Arquitectos e ingenieros trabajan en el mismo proyecto desde el inicio. El diseño ya nace calculado y presupuestado, y la obra se ejecuta como se planificó.</p>
+    </div>
+    <div class="services reveal">
+      <div class="svc"><span class="tag">A</span><h3>Diseño arquitectónico</h3><p>Viviendas, casas de playa, comercios y oficinas.</p><ul><li>Anteproyecto y renders</li><li>Planos constructivos</li><li>Diseño de interiores</li></ul></div>
+      <div class="svc"><span class="tag">E</span><h3>Ingeniería</h3><p>Cálculo y diseño de las instalaciones.</p><ul><li>Diseño estructural</li><li>Hidrosanitario y eléctrico</li><li>Memorias de cálculo</li></ul></div>
+      <div class="svc"><span class="tag">C</span><h3>Construcción y supervisión</h3><p>Ejecutamos la obra o supervisamos la de terceros.</p><ul><li>Presupuesto y programación</li><li>Construcción llave en mano</li><li>Supervisión técnica</li></ul></div>
+      <div class="svc"><span class="tag">+</span><h3>Consultoría y licitaciones</h3><p>Para instituciones, desarrolladores e inversionistas.</p><ul><li>Estudios de factibilidad</li><li>Avalúos y diagnósticos</li><li>Licitaciones públicas y privadas</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sectors-sec" id="sectores">
+  <div class="in">
+    <div class="sec-head">
+      <div class="k"><span class="label">Sectores</span><h2>Del edificio a la ciudad</h2></div>
+      <p>Trabajamos en cuatro escalas: los equipamientos que dan servicio a la gente, las zonas donde se vive y se trabaja, la infraestructura que las conecta y la planificación de la ciudad completa.</p>
+    </div>
+    <div class="sectors reveal">
+      <article class="sector">
+        <span class="no">01</span>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 46h44M8 46V22l18-12 18 12v24"/><path d="M20 46V32h12v14M26 16v8M22 20h8"/></svg>
+        <h3>Equipamientos urbanos</h3>
+        <ul><li>Educación</li><li>Salud</li><li>Recreación</li></ul>
+      </article>
+      <article class="sector">
+        <span class="no">02</span>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 46h44M8 46V26h12v20M20 46V12h16v34M36 46V30h10v16"/><path d="M24 18h8M24 24h8M24 30h8M24 36h8" stroke-width="1"/></svg>
+        <h3>Zonas urbanas</h3>
+        <ul><li>Residencial</li><li>Comercial</li><li>Oficinas</li><li>Logística</li></ul>
+      </article>
+      <article class="sector">
+        <span class="no">03</span>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 30h48M6 30c6-12 14-16 20-16s14 4 20 16"/><path d="M14 30v-9M26 30V14M38 30v-9" stroke-width="1"/><path d="M10 30v14M42 30v14"/><path d="M4 48h44" stroke-dasharray="3 3"/></svg>
+        <h3>Infraestructura</h3>
+        <ul><li>Carreteras</li><li>Puentes</li><li>Redes de agua potable</li><li>Redes de drenaje sanitario</li><li>Redes de drenaje pluvial</li><li>Redes de energía eléctrica</li></ul>
+      </article>
+      <article class="sector">
+        <span class="no">04</span>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="5" width="42" height="42"/><path d="M5 20h42M5 34h42M20 5v42M34 5v42" stroke-width="1"/><rect x="21" y="21" width="12" height="12" fill="currentColor" stroke="none" opacity=".35"/><path d="M5 47 47 5" stroke-dasharray="3 3"/></svg>
+        <h3>Urbanismo</h3>
+        <ul><li>Diagnósticos urbanos</li><li>Propuestas de revitalización</li><li>Planes urbanos</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORIA 2 -->
+<section class="flowsec" id="proceso">
+  <svg class="flowpath" id="flowpath" aria-hidden="true"><path class="base" id="fpBase"/><path class="live" id="fpLive"/><circle class="halo" id="fpHalo" r="16"/><circle class="dot" id="fpDot" r="7"/></svg>
+  <div class="in">
+    <div class="sec-head" id="fpHead">
+      <div class="k"><span class="label">Proceso</span><h2>Así nace un proyecto con nosotros</h2></div>
+      <p>Cuatro etapas, de la primera conversación a los planos as built. Siga la línea: en cada etapa aparece todo lo que hacemos en ella.</p>
+    </div>
+    <div class="station" data-k="1">
+      <div class="st-art"><span class="bignum" aria-hidden="true">01</span><svg class="orb" viewBox="0 0 600 440" aria-hidden="true"><ellipse class="orbit" cx="300" cy="220" rx="225" ry="150" fill="none" stroke-width="1.2" stroke-dasharray="2 7"/><g class="core"><circle cx="300" cy="220" r="72" stroke-width="2.5"/><use href="#i-chat" x="262" y="182" width="76" height="76"/></g><text class="cap" x="300" y="316" text-anchor="middle">INFORMACIÓN PRELIMINAR</text><g transform="translate(300.0,70.0)"><g class="it" style="--i:0"><circle r="26" stroke-width="1.5"/><use href="#i-building" x="-13" y="-13" width="26" height="26"/><text class="lb" y="44" text-anchor="middle">Tipología</text></g></g><g transform="translate(514.0,173.6)"><g class="it" style="--i:1"><circle r="26" stroke-width="1.5"/><use href="#i-list" x="-13" y="-13" width="26" height="26"/><text class="lb" y="44" text-anchor="middle">Necesidades</text></g></g><g transform="translate(432.3,341.4)"><g class="it" style="--i:2"><circle r="26" stroke-width="1.5"/><use href="#i-pin" x="-13" y="-13" width="26" height="26"/><text class="lb" y="44" text-anchor="middle">Ubicación</text></g></g><g transform="translate(167.7,341.4)"><g class="it" style="--i:3"><circle r="26" stroke-width="1.5"/><use href="#i-clock" x="-13" y="-13" width="26" height="26"/><text class="lb" y="44" text-anchor="middle">Tiempo</text></g></g><g transform="translate(86.0,173.6)"><g class="it" style="--i:4"><circle r="26" stroke-width="1.5"/><use href="#i-coin" x="-13" y="-13" width="26" height="26"/><text class="lb" y="44" text-anchor="middle">Presupuesto</text></g></g></svg></div>
+      <div class="st-txt">
+        <span class="k">Etapa 01 · Información preliminar</span>
+        <h3>Primero escuchamos</h3>
+        <p>Empezamos con un formulario en línea o una entrevista en la oficina. Con cinco preguntas definimos el proyecto antes de dibujar una línea.</p>
+        <dl class="qa"><div><dt>Tipología</dt><dd>¿Qué proyecto quiere hacer?</dd></div><div><dt>Necesidades</dt><dd>¿Cómo lo quiere?</dd></div><div><dt>Ubicación</dt><dd>¿Dónde lo quiere?</dd></div><div><dt>Tiempo</dt><dd>¿Cuándo lo necesita?</dd></div><div><dt>Presupuesto</dt><dd>¿Con cuánto dispone?</dd></div></dl>
+      </div>
+    </div>
+    <div class="station" data-k="2">
+      <div class="st-art"><span class="bignum" aria-hidden="true">02</span><svg class="orb" viewBox="0 0 600 440" aria-hidden="true"><ellipse class="orbit" cx="300" cy="220" rx="225" ry="150" fill="none" stroke-width="1.2" stroke-dasharray="2 7"/><g class="core"><circle cx="300" cy="220" r="72" stroke-width="2.5"/><use href="#i-tri" x="262" y="182" width="76" height="76"/></g><text class="cap" x="300" y="316" text-anchor="middle">ANTEPROYECTO</text><g transform="translate(300.0,70.0)"><g class="it" style="--i:0"><circle r="26" stroke-width="1.5"/><use href="#i-search" x="-13" y="-13" width="26" height="26"/><text class="lb" y="44" text-anchor="middle">Análisis del sitio</text></g></g><g transform="translate(475.9,126.5)"><g class="it" style="--i:1"><circle r="26" stroke-width="1.5"/><use href="#i-topo" x="-13" y="-13" width="26" height="26"/><text class="lb" y="44" text-anchor="middle">Topografía</text></g></g><g transform="translate(519.4,253.4)"><g class="it" style="--i:2"><circle r="26" stroke-width="1.5"/><use href="#i-soil" x="-13" y="-13" width="26" height="26"/><text class="lb" y="44" text-anchor="middle">Mecánica de suelos</text></g></g><g transform="translate(397.6,355.1)"><g class="it" style="--i:3"><circle r="26" stroke-width="1.5"/><use href="#i-seismic" x="-13" y="-13" width="26" height="26"/><text class="lb" y="44" text-anchor="middle">Sismicidad</text></g></g><g transform="translate(202.4,355.1)"><g class="it" style="--i:4"><circle r="26" stroke-width="1.5"/><use href="#i-drop" x="-13" y="-13" width="26" height="26"/><text class="lb" y="44" text-anchor="middle">Hidrología</text></g></g><g transform="translate(80.6,253.4)"><g class="it" style="--i:5"><circle r="26" stroke-width="1.5"/><use href="#i-bulb" x="-13" y="-13" width="26" height="26"/><text class="lb" y="44" text-anchor="middle">Concepto</text></g></g><g transform="translate(124.1,126.5)"><g class="it" style="--i:6"><circle r="26" stroke-width="1.5"/><use href="#i-pencil" x="-13" y="-13" width="26" height="26"/><text class="lb" y="44" text-anchor="middle">Diseño e interiores</text></g></g></svg></div>
+      <div class="st-txt">
+        <span class="k">Etapa 02 · Anteproyecto</span>
+        <h3>Leemos el sitio y le damos forma</h3>
+        <p>Estudiamos el terreno a fondo y, con esa base, definimos el concepto de diseño y la imagen objetivo del proyecto.</p>
+        <ul><li>Análisis del sitio</li><li>Topografía</li><li>Mecánica de suelos</li><li>Sismicidad</li><li>Hidrología</li><li>Concepto e imagen objetivo</li><li>Diseño arquitectónico e interiores</li></ul>
+      </div>
+    </div>
+    <div class="station" data-k="3">
+      <div class="st-art"><span class="bignum" aria-hidden="true">03</span><svg class="orb" viewBox="0 0 600 440" aria-hidden="true"><ellipse class="orbit" cx="300" cy="220" rx="225" ry="150" fill="none" stroke-width="1.2" stroke-dasharray="2 7"/><g class="core"><circle cx="300" cy="220" r="72" stroke-width="2.5"/><use href="#i-frame" x="262" y="182" width="76" height="76"/></g><text class="cap" x="300" y="316" text-anchor="middle">PROYECTO</text><g transform="translate(300.0,70.0)"><g class="it" style="--i:0"><circle r="26" stroke-width="1.5"/><use href="#i-frame" x="-13" y="-13" width="26" height="26"/><text class="lb" y="44" text-anchor="middle">Estructural</text></g></g><g transform="translate(525.0,220.0)"><g class="it" style="--i:1"><circle r="26" stroke-width="1.5"/><use href="#i-bolt" x="-13" y="-13" width="26" height="26"/><text class="lb" y="44" text-anchor="middle">Eléctrica</text></g></g><g transform="translate(300.0,370.0)"><g class="it" style="--i:2"><circle r="26" stroke-width="1.5"/><use href="#i-faucet" x="-13" y="-13" width="26" height="26"/><text class="lb" y="44" text-anchor="middle">Hidrosanitaria</text></g></g><g transform="translate(75.0,220.0)"><g class="it" style="--i:3"><circle r="26" stroke-width="1.5"/><use href="#i-gear" x="-13" y="-13" width="26" height="26"/><text class="lb" y="44" text-anchor="middle">Electromecánica</text></g></g></svg></div>
+      <div class="st-txt">
+        <span class="k">Etapa 03 · Proyecto</span>
+        <h3>La ingeniería completa, antes de mover tierra</h3>
+        <p>Los ingenieros del grupo desarrollan todas las disciplinas sobre el mismo diseño, según el Reglamento Nacional de la Construcción.</p>
+        <ul><li>Ingeniería estructural</li><li>Ingeniería eléctrica</li><li>Ingeniería hidrosanitaria</li><li>Ingeniería electromecánica</li></ul>
+      </div>
+    </div>
+    <div class="station" data-k="4">
+      <div class="st-art"><span class="bignum" aria-hidden="true">04</span><svg class="orb" viewBox="0 0 600 440" aria-hidden="true"><ellipse class="orbit" cx="300" cy="220" rx="225" ry="150" fill="none" stroke-width="1.2" stroke-dasharray="2 7"/><g class="core"><circle cx="300" cy="220" r="72" stroke-width="2.5"/><use href="#i-helmet" x="262" y="182" width="76" height="76"/></g><text class="cap" x="300" y="316" text-anchor="middle">GESTIÓN</text><g transform="translate(300.0,70.0)"><g class="it" style="--i:0"><circle r="26" stroke-width="1.5"/><use href="#i-calc" x="-13" y="-13" width="26" height="26"/><text class="lb" y="44" text-anchor="middle">Presupuesto</text></g></g><g transform="translate(514.0,173.6)"><g class="it" style="--i:1"><circle r="26" stroke-width="1.5"/><use href="#i-gantt" x="-13" y="-13" width="26" height="26"/><text class="lb" y="44" text-anchor="middle">Cronograma</text></g></g><g transform="translate(432.3,341.4)"><g class="it" style="--i:2"><circle r="26" stroke-width="1.5"/><use href="#i-eye" x="-13" y="-13" width="26" height="26"/><text class="lb" y="44" text-anchor="middle">Supervisión</text></g></g><g transform="translate(167.7,341.4)"><g class="it" style="--i:3"><circle r="26" stroke-width="1.5"/><use href="#i-crane" x="-13" y="-13" width="26" height="26"/><text class="lb" y="44" text-anchor="middle">Administración</text></g></g><g transform="translate(86.0,173.6)"><g class="it" style="--i:4"><circle r="26" stroke-width="1.5"/><use href="#i-asbuilt" x="-13" y="-13" width="26" height="26"/><text class="lb" y="44" text-anchor="middle">Planos as built</text></g></g></svg></div>
+      <div class="st-txt">
+        <span class="k">Etapa 04 · Gestión</span>
+        <h3>La obra, tal como se dibujó</h3>
+        <p>Presupuestamos, programamos y dirigimos la construcción hasta la entrega, y le dejamos los planos de cómo quedó construida.</p>
+        <ul><li>Presupuesto</li><li>Cronograma</li><li>Supervisión</li><li>Administración de obra</li><li>Seguimiento (planos as built)</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROYECTOS: recorrido horizontal -->
+<section class="projects" id="proyectos">
+  <div class="hs" id="hs">
+    <div class="hs-sticky">
+      <div class="in">
+        <div class="sec-head">
+          <div class="k"><span class="label">Proyectos</span><h2>Obras seleccionadas</h2></div>
+          <p>Cada ficha muestra la ubicación, el área y el año. Aquí van las fotos y los renders reales de cada proyecto.</p>
+        </div>
+      </div>
+      <div class="in" style="max-width:none">
+        <div class="track" id="track">
+          <article class="proj feat">
+            <div class="ph">
+              <svg viewBox="0 0 700 480" preserveAspectRatio="xMidYMid slice" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4">
+                <line x1="0" y1="380" x2="700" y2="380"/><path d="M0 380 Q 120 360 220 372 T 700 368" opacity=".5"/>
+                <rect x="140" y="250" width="420" height="130"/><line x1="100" y1="250" x2="600" y2="250" stroke-width="3"/>
+                <rect x="250" y="160" width="230" height="90"/><line x1="220" y1="160" x2="510" y2="160" stroke-width="3"/>
+                <line x1="180" y1="270" x2="180" y2="380"/><line x1="300" y1="270" x2="300" y2="380"/><line x1="420" y1="270" x2="420" y2="380"/><line x1="520" y1="270" x2="520" y2="380"/>
+                <path d="M600 380 c10-60 0-110 -10-150 M590 230 c-30 10 -50 30 -60 50 M590 230 c30 0 50 20 60 40" opacity=".6"/>
+              </svg>
+              <span class="num">01</span><span class="ph-note">FOTO / RENDER DEL PROYECTO</span>
+            </div>
+            <div class="pinfo">
+              <div class="meta"><span>Zonas urbanas · Residencial</span><span>Rancho Santana, Rivas</span><span>— m²</span><span>20—</span></div>
+              <h3>Residencia en Rancho Santana</h3>
+              <p>Casa de playa en la costa del Pacífico. Aquí va el concepto, los materiales y cómo responde al sol y al viento del sitio.</p>
+            </div>
+          </article>
+          <article class="proj">
+            <div class="ph">
+              <svg viewBox="0 0 500 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4">
+                <line x1="0" y1="270" x2="500" y2="270"/><rect x="110" y="70" width="280" height="200"/>
+                <line x1="110" y1="120" x2="390" y2="120"/><line x1="110" y1="170" x2="390" y2="170"/><line x1="110" y1="220" x2="390" y2="220"/>
+                <line x1="180" y1="70" x2="180" y2="270"/><line x1="250" y1="70" x2="250" y2="270"/><line x1="320" y1="70" x2="320" y2="270"/><line x1="90" y1="70" x2="410" y2="70" stroke-width="3"/>
+              </svg>
+              <span class="num">02</span><span class="ph-note">FOTO / RENDER</span>
+            </div>
+            <div class="pinfo"><div class="meta"><span>Zonas urbanas · Comercial</span><span>Managua</span></div><h3>Nombre del proyecto</h3><p>Espacio para un segundo proyecto destacado.</p></div>
+          </article>
+          <article class="proj">
+            <div class="ph">
+              <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4">
+                <line x1="0" y1="210" x2="400" y2="210"/><path d="M90 210 V120 L200 60 L310 120 V210"/><rect x="175" y="150" width="50" height="60"/><rect x="110" y="135" width="40" height="35"/><rect x="250" y="135" width="40" height="35"/>
+              </svg>
+              <span class="num">03</span><span class="ph-note">FOTO / RENDER</span>
+            </div>
+            <div class="pinfo"><div class="meta"><span>Equipamientos · Educación</span><span>Ubicación</span></div><h3>Nombre del proyecto</h3><p>Descripción breve del proyecto.</p></div>
+          </article>
+          <article class="proj">
+            <div class="ph">
+              <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4">
+                <line x1="0" y1="210" x2="400" y2="210"/><rect x="60" y="100" width="280" height="110"/><line x1="40" y1="100" x2="360" y2="100" stroke-width="3"/><line x1="60" y1="150" x2="340" y2="150"/><line x1="130" y1="100" x2="130" y2="210"/><line x1="200" y1="100" x2="200" y2="210"/><line x1="270" y1="100" x2="270" y2="210"/>
+              </svg>
+              <span class="num">04</span><span class="ph-note">FOTO / RENDER</span>
+            </div>
+            <div class="pinfo"><div class="meta"><span>Infraestructura · Puentes</span><span>Ubicación</span></div><h3>Nombre del proyecto</h3><p>Descripción breve del proyecto.</p></div>
+          </article>
+          <article class="proj">
+            <div class="ph">
+              <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4">
+                <line x1="0" y1="210" x2="400" y2="210"/><rect x="150" y="40" width="100" height="170"/><line x1="150" y1="80" x2="250" y2="80"/><line x1="150" y1="120" x2="250" y2="120"/><line x1="150" y1="160" x2="250" y2="160"/><rect x="250" y="120" width="90" height="90"/><rect x="60" y="150" width="90" height="60"/>
+              </svg>
+              <span class="num">05</span><span class="ph-note">FOTO / RENDER</span>
+            </div>
+            <div class="pinfo"><div class="meta"><span>Urbanismo · Diagnóstico urbano</span><span>Ubicación</span></div><h3>Nombre del proyecto</h3><p>Un diagnóstico o plan urbano que muestre la escala de ciudad.</p></div>
+          </article>
+        </div>
+        <div class="hs-count"><span id="hsn">01 / 05</span><span class="rail"><i id="hsr"></i></span><span>Siga bajando</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bids-sec" id="licitaciones">
+  <div class="in">
+    <div class="sec-head">
+      <div class="k"><span class="label">Licitaciones</span><h2>Para instituciones y empresas que contratan por concurso</h2></div>
+      <p>Participamos en licitaciones públicas y privadas de diseño, construcción, supervisión y consultoría.</p>
+    </div>
+    <div class="bids">
+      <div class="txt">
+        <p>Si su empresa u organismo prepara un concurso, <strong>invítenos</strong>. Podemos presentarnos como firma o en consorcio, y le enviamos nuestra documentación legal y técnica en el formato que pida el pliego.</p>
+        <p>Nuestro equipo cubre las tres disciplinas que piden la mayoría de los términos de referencia: arquitectura, ingeniería civil y dirección de obra.</p>
+        <div><a class="btn inv" href="#contacto">Invitar a un concurso</a></div>
+      </div>
+      <ul class="checklist reveal" aria-label="Documentación disponible">
+        <li>Currículum de la firma y de cada socio</li>
+        <li>Experiencia comprobable por proyecto</li>
+        <li>Registro de proveedor del Estado (SISCAE)</li>
+        <li>Licencias profesionales vigentes</li>
+        <li>Constancias de solvencia fiscal y municipal</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="nosotros">
+  <div class="in">
+    <div class="sec-head">
+      <div class="k"><span class="label">Nosotros</span><h2>Cinco socios, un mismo norte</h2></div>
+      <p>Nos formamos en la Universidad Nacional de Ingeniería, en Managua. Unimos la arquitectura y la ingeniería en un solo grupo para que cada proyecto tenga diseño, cálculo y obra bajo la misma responsabilidad.</p>
+    </div>
+    <div class="partners reveal">
+      <div class="partner"><div class="row"><div class="mono-av">MR</div><div class="five"><i class="me"></i><i></i><i></i><i></i><i></i></div></div><div><b>Mario Rostrán</b><span>Socio · cargo</span></div></div>
+      <div class="partner"><div class="row"><div class="mono-av">BG</div><div class="five"><i></i><i class="me"></i><i></i><i></i><i></i></div></div><div><b>Braky Gurdián</b><span>Socio · cargo</span></div></div>
+      <div class="partner"><div class="row"><div class="mono-av">EL</div><div class="five"><i></i><i></i><i class="me"></i><i></i><i></i></div></div><div><b>Eleazar López</b><span>Socio · cargo</span></div></div>
+      <div class="partner"><div class="row"><div class="mono-av">JB</div><div class="five"><i></i><i></i><i></i><i class="me"></i><i></i></div></div><div><b>Jorge Benavídez</b><span>Socio · cargo</span></div></div>
+      <div class="partner"><div class="row"><div class="mono-av">JZ</div><div class="five"><i></i><i></i><i></i><i></i><i class="me"></i></div></div><div><b>José Zamorio</b><span>Socio · cargo</span></div></div>
+    </div>
+    <div class="facts">
+      <div><b>UNI</b><span>La universidad donde se formaron los cinco socios</span></div>
+      <div><b>A + E + C</b><span>Arquitectura, ingeniería y construcción en un equipo</span></div>
+      <div><b>Todo el país</b><span>Del Pacífico al Caribe, en obra privada y pública</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="in">
+    <div class="cinfo">
+      <span class="label">Contacto</span>
+      <h2>Cuéntanos de tu proyecto</h2>
+      <p>Te respondemos en menos de 24 horas. La primera reunión no tiene costo.</p>
+      <div class="channel"><span class="label">WhatsApp</span><b>+505 0000 0000</b></div>
+      <div class="channel"><span class="label">Correo</span><b>info@docenorte.com</b></div>
+      <div class="channel"><span class="label">Oficina</span><b>Managua, Nicaragua</b></div>
+    </div>
+    <form id="f" novalidate>
+      <div class="row2">
+        <label for="nombre">Nombre<input id="nombre" name="nombre" autocomplete="name" placeholder="Tu nombre"></label>
+        <label for="tel">Teléfono / WhatsApp<input id="tel" name="tel" autocomplete="tel" placeholder="+505"></label>
+      </div>
+      <div class="row2">
+        <label for="tipo">Tipo de proyecto<select id="tipo" name="tipo"><optgroup label="Equipamientos urbanos"><option>Educación</option><option>Salud</option><option>Recreación</option></optgroup><optgroup label="Zonas urbanas"><option>Residencial</option><option>Comercial</option><option>Oficinas</option><option>Logística</option></optgroup><optgroup label="Infraestructura"><option>Carreteras</option><option>Puentes</option><option>Agua potable y drenaje</option><option>Energía eléctrica</option></optgroup><optgroup label="Urbanismo"><option>Diagnóstico o plan urbano</option></optgroup><option>Licitación</option><option>Otro</option></select></label>
+        <label for="ubic">Ubicación del terreno<input id="ubic" name="ubic" placeholder="Ciudad o departamento"></label>
+      </div>
+      <div class="row2">
+        <label for="tiempo">¿Cuándo lo necesita?<select id="tiempo" name="tiempo"><option>Lo antes posible</option><option>En 3 a 6 meses</option><option>En 6 a 12 meses</option><option>Más de un año</option><option>Aún no lo sé</option></select></label>
+        <label for="ppto">Presupuesto aproximado<select id="ppto" name="ppto"><option>Menos de US$ 50,000</option><option>US$ 50,000 a 150,000</option><option>US$ 150,000 a 500,000</option><option>Más de US$ 500,000</option><option>Prefiero conversarlo</option></select></label>
+      </div>
+      <label for="msg">Necesidades<textarea id="msg" name="msg" placeholder="¿Cómo lo quiere? Área aproximada, número de ambientes, estilo…"></textarea></label>
+      <button class="btn primary" type="submit">Enviar mensaje</button>
+      <p class="sent" id="sent" hidden>Esto es un prototipo: en la versión publicada, el mensaje llegará al correo y al WhatsApp del grupo.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="in">
+    <a class="brand" href="#inicio"><svg viewBox="0 0 100 96" aria-hidden="true"><use href="#sym"/></svg><span><b>GRUPO DOCE NORTE</b><small>ARQUITECTURA · INGENIERÍA · CONSTRUCCIÓN</small></span></a>
+    <span class="mono">12°08′N · 86°15′O · Managua, Nicaragua</span>
+  </div>
+</footer>
+
+<a class="wa" href="#contacto" aria-label="Escríbenos por WhatsApp"><svg aria-hidden="true"><use href="#wa-ico"/></svg>WhatsApp</a>
+
+<script>
+(function(){
+  var root=document.documentElement; root.classList.add('js');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var LAM=['','A-101 · Información preliminar','A-102 · Anteproyecto','A-103 · Proyecto','A-104 · Gestión'];
+
+  function setStep(story,n){
+    var fig=story.querySelector('.fig'); if(!fig||fig.dataset.step==String(n))return;
+    fig.dataset.step=n;
+    story.querySelectorAll('.beat').forEach(function(b){b.classList.toggle('act',+b.dataset.step===n)});
+    fig.querySelectorAll('.ly').forEach(function(el){
+      var from=+el.dataset.from||1, until=el.dataset.until?+el.dataset.until:99, hide=el.dataset.hide?+el.dataset.hide:99, dim=el.dataset.dim?+el.dataset.dim:99;
+      var vis=n>=from&&n<=until&&n<hide;
+      el.classList.toggle('on',vis&&n<dim); el.classList.toggle('dim',vis&&n>=dim);
+    });
+    if(fig.classList.contains('fig2')){
+      document.getElementById('bar2').style.width=(n*25)+'%';
+      document.getElementById('lam').textContent=LAM[n];
+      document.getElementById('etp').textContent='ETAPA 0'+n+' / 04';
+      fig.querySelectorAll('.nd').forEach(function(d){d.classList.toggle('done',+d.dataset.k<=n)});
+    }
+  }
+  var stories=[].slice.call(document.querySelectorAll('[data-story]'));
+  stories.forEach(function(s){setStep(s,1)});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){setStep(e.target.closest('[data-story]'),+e.target.dataset.step)}})},{rootMargin:'-45% 0px -45% 0px'});
+  document.querySelectorAll('.beat').forEach(function(b){io.observe(b)});
+
+  var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('seen');io2.unobserve(e.target)}})},{threshold:.25});
+  document.querySelectorAll('.reveal').forEach(function(el){io2.observe(el)});
+
+  // Proyectos: recorrido horizontal
+  var hs=document.getElementById('hs'), track=document.getElementById('track'), sticky=hs.querySelector('.hs-sticky'), dist=0, cards=track.children.length;
+  function layout(){
+    var pin=!reduce&&window.innerWidth>820;
+    hs.classList.toggle('pin',pin); track.style.transform='';
+    if(!pin){hs.style.height='';dist=0;return}
+    dist=Math.max(0,track.scrollWidth-sticky.clientWidth+40);
+    hs.style.height=(sticky.offsetHeight+dist)+'px';
+  }
+  var trail=document.getElementById('trail'), trav=document.getElementById('trav'), pbeats=[].slice.call(document.querySelectorAll('.process .beat'));
+  function flow(){
+    if(!trail||pbeats.length<2)return;
+    var f=pbeats[0].getBoundingClientRect(), l=pbeats[pbeats.length-1].getBoundingClientRect(), mid=window.innerHeight/2;
+    var a=f.top+f.height/2, b=l.top+l.height/2, p=Math.min(1,Math.max(0,(mid-a)/(b-a)));
+    trail.style.strokeDashoffset=1-p;
+    var L=trail.getTotalLength(), pt=trail.getPointAtLength(p*L); trav.setAttribute('cx',pt.x); trav.setAttribute('cy',pt.y);
+  }
+  function onScroll(){
+    flow(); flow2();
+    var h=root.scrollHeight-window.innerHeight; document.getElementById('prog').style.transform='scaleX('+(h>0?window.scrollY/h:0)+')';
+    if(dist>0){
+      var p=Math.min(1,Math.max(0,-hs.getBoundingClientRect().top/dist));
+      track.style.transform='translateX('+(-p*dist)+'px)';
+      document.getElementById('hsr').style.width=(p*100)+'%';
+      document.getElementById('hsn').textContent='0'+Math.min(cards,1+Math.round(p*(cards-1)))+' / 0'+cards;
+    }
+  }
+  // Proceso: línea sinuosa a página completa
+  var fsec=document.getElementById('proceso'), fsvg=document.getElementById('flowpath'), fBase=document.getElementById('fpBase'), fLive=document.getElementById('fpLive'), fDot=document.getElementById('fpDot'), fHalo=document.getElementById('fpHalo');
+  var stations=[].slice.call(document.querySelectorAll('.station')), fL=0, samples=[], stLen=[];
+  function buildFlow(){
+    var sr=fsec.getBoundingClientRect(), W=sr.width, H=sr.height, narrow=W<820;
+    fsvg.setAttribute('viewBox','0 0 '+W+' '+H);
+    var hd=document.getElementById('fpHead').getBoundingClientRect();
+    var pts=[{x:narrow?W*.82:W*.5,y:hd.bottom-sr.top+10}];
+    stations.forEach(function(st){var r=st.querySelector('.orb').getBoundingClientRect();pts.push({x:r.left-sr.left+r.width/2,y:r.top-sr.top+r.height*(220/440)})});
+    pts.push({x:narrow?W*.18:W*.5,y:H-30});
+    var d='M'+pts[0].x+' '+pts[0].y;
+    for(var i=1;i<pts.length;i++){var q=pts[i-1],p=pts[i],dy=p.y-q.y,sw=narrow?(i%2?W*.42:-W*.42):0;
+      d+=' C'+(q.x+sw)+' '+(q.y+dy*.55)+' '+(p.x+sw)+' '+(p.y-dy*.55)+' '+p.x+' '+p.y;}
+    fBase.setAttribute('d',d); fLive.setAttribute('d',d);
+    fL=fLive.getTotalLength(); fLive.style.strokeDasharray=fL; samples=[];
+    for(var j=0;j<=600;j++){var pt=fLive.getPointAtLength(fL*j/600);samples.push(pt.y)}
+    stLen=pts.slice(1,-1).map(function(p){var best=0;for(var j=0;j<=600;j++){if(samples[j]<=p.y)best=j}return fL*best/600});
+  }
+  function flow2(){
+    if(!fL)return;
+    var sr=fsec.getBoundingClientRect(), anchor=reduce?1e9:window.innerHeight*.58-sr.top, idx=0;
+    for(var j=0;j<=600;j++){if(samples[j]<=anchor)idx=j}
+    var len=fL*idx/600; if(anchor<samples[0])len=0;
+    fLive.style.strokeDashoffset=fL-len;
+    var pt=fLive.getPointAtLength(len); fDot.setAttribute('cx',pt.x);fDot.setAttribute('cy',pt.y);fHalo.setAttribute('cx',pt.x);fHalo.setAttribute('cy',pt.y);
+    stations.forEach(function(st,i){st.classList.toggle('on',len>=stLen[i]-40);
+      if(!reduce){var r=st.getBoundingClientRect(),c=(r.top+r.height/2-window.innerHeight/2);st.querySelector('.bignum').style.translate='0 '+(c*0.12)+'px'}});
+  }
+  layout(); buildFlow(); onScroll();
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){buildFlow();onScroll()});
+  window.addEventListener('load',function(){layout();buildFlow();onScroll()});
+  window.addEventListener('resize',function(){layout();buildFlow();onScroll()});
+  window.addEventListener('scroll',onScroll,{passive:true});
+
+  // Navegación activa
+  var links={}; document.querySelectorAll('nav a').forEach(function(a){links[a.getAttribute('href').slice(1)]=a});
+  var io3=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){for(var k in links)links[k].classList.toggle('cur',k===e.target.id)}})},{rootMargin:'-50% 0px -49% 0px'});
+  Object.keys(links).forEach(function(id){var el=document.getElementById(id);if(el)io3.observe(el)});
+
+  document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();document.getElementById('sent').hidden=false;});
+  // Idioma ES / EN
+  var I18N={"Sitio en construcción · Pronto publicaremos nuestros proyectos y datos de contacto": "Site under construction · Our projects and contact details are coming soon", "Servicios": "Services", "Sectores": "Sectors", "Proceso": "Process", "Proyectos": "Projects", "Licitaciones": "Tenders", "Nosotros": "About us", "Contacto": "Contact", "Arquitectura · Ingeniería · Construcción": "Architecture · Engineering · Construction", "Diseñamos y construimos desde el": "We design and build from the", "paralelo 12° Norte": "12th parallel North", "Somos cinco arquitectos e ingenieros formados en la UNI que se unieron en un solo equipo. Diseñamos, calculamos y construimos viviendas, proyectos comerciales y obra pública en toda Nicaragua.": "We are five architects and engineers, all trained at UNI, working as one team. We design, engineer and build homes, commercial projects and public works across Nicaragua.", "Cotiza tu proyecto": "Get a quote", "Ver proyectos": "See projects", "Desliza para conocer el norte": "Scroll to find north", "12°08′ N · 86°15′ O": "12°08′ N · 86°15′ W", "Una línea cruza Nicaragua y pasa por": "A line crosses Nicaragua and runs through", "Es el paralelo 12° Norte. Sobre él nos formamos en la Universidad Nacional de Ingeniería, y desde aquí trabajamos para todo el país, del Pacífico al Caribe.": "It is the 12th parallel North. Along it we studied at the National University of Engineering (UNI), and from here we work across the whole country, from the Pacific to the Caribbean.", "Latitud": "Latitude", "86°15′ O": "86°15′ W", "Longitud": "Longitude", "La flecha que marca el norte en cada plano, y": "The arrow that marks north on every drawing, and", "cinco socios": "five partners", "en un mismo sello.": "in a single seal.", "Cada cuadro del sello es uno de nosotros. Juntos firmamos el diseño, el cálculo y la obra, con un solo responsable de principio a fin.": "Each square in the seal is one of us. Together we sign the design, the engineering and the construction, with one accountable team from start to finish.", "12°08′N · 86°15′O": "12°08′N · 86°15′W", "Un solo equipo, del primer trazo a la entrega de llaves": "One team, from the first sketch to handing over the keys", "Arquitectos e ingenieros trabajan en el mismo proyecto desde el inicio. El diseño ya nace calculado y presupuestado, y la obra se ejecuta como se planificó.": "Architects and engineers work on the same project from day one. The design is engineered and costed from the start, and the building is built as planned.", "Diseño arquitectónico": "Architectural design", "Viviendas, casas de playa, comercios y oficinas.": "Homes, beach houses, retail and offices.", "Anteproyecto y renders": "Schematic design and renders", "Planos constructivos": "Construction drawings", "Diseño de interiores": "Interior design", "Ingeniería": "Engineering", "Cálculo y diseño de las instalaciones.": "Structural and building systems design.", "Diseño estructural": "Structural design", "Hidrosanitario y eléctrico": "Plumbing and electrical", "Memorias de cálculo": "Calculation reports", "Construcción y supervisión": "Construction and supervision", "Ejecutamos la obra o supervisamos la de terceros.": "We build, or we supervise others' construction.", "Presupuesto y programación": "Budgeting and scheduling", "Construcción llave en mano": "Turnkey construction", "Supervisión técnica": "Technical supervision", "Consultoría y licitaciones": "Consulting and tenders", "Para instituciones, desarrolladores e inversionistas.": "For institutions, developers and investors.", "Estudios de factibilidad": "Feasibility studies", "Avalúos y diagnósticos": "Appraisals and assessments", "Licitaciones públicas y privadas": "Public and private tenders", "Del edificio a la ciudad": "From the building to the city", "Trabajamos en cuatro escalas: los equipamientos que dan servicio a la gente, las zonas donde se vive y se trabaja, la infraestructura que las conecta y la planificación de la ciudad completa.": "We work at four scales: the facilities that serve people, the districts where they live and work, the infrastructure that connects them, and the planning of the whole city.", "Equipamientos urbanos": "Public facilities", "Educación": "Education", "Salud": "Health", "Recreación": "Recreation", "Zonas urbanas": "Urban development", "Residencial": "Residential", "Comercial": "Commercial", "Oficinas": "Offices", "Logística": "Logistics", "Infraestructura": "Infrastructure", "Carreteras": "Roads", "Puentes": "Bridges", "Redes de agua potable": "Drinking water networks", "Redes de drenaje sanitario": "Sanitary sewer networks", "Redes de drenaje pluvial": "Storm drainage networks", "Redes de energía eléctrica": "Power networks", "Urbanismo": "Urban planning", "Diagnósticos urbanos": "Urban assessments", "Propuestas de revitalización": "Revitalization proposals", "Planes urbanos": "Urban plans", "Así nace un proyecto con nosotros": "How a project comes to life with us", "Cuatro etapas, de la primera conversación a los planos as built. Siga la línea: en cada etapa aparece todo lo que hacemos en ella.": "Four stages, from the first conversation to the as-built drawings. Follow the line: each stage shows everything we do in it.", "INFORMACIÓN PRELIMINAR": "PRELIMINARY BRIEF", "Tipología": "Building type", "Necesidades": "Needs", "Ubicación": "Location", "Tiempo": "Timeline", "Presupuesto": "Budget", "Etapa 01 · Información preliminar": "Stage 01 · Preliminary brief", "Primero escuchamos": "First, we listen", "Empezamos con un formulario en línea o una entrevista en la oficina. Con cinco preguntas definimos el proyecto antes de dibujar una línea.": "We start with an online form or a meeting at our office. Five questions define the project before we draw a single line.", "¿Qué proyecto quiere hacer?": "What do you want to build?", "¿Cómo lo quiere?": "How do you want it?", "¿Dónde lo quiere?": "Where will it be?", "¿Cuándo lo necesita?": "When do you need it?", "¿Con cuánto dispone?": "What is your budget?", "ANTEPROYECTO": "SCHEMATIC DESIGN", "Análisis del sitio": "Site analysis", "Topografía": "Topography", "Mecánica de suelos": "Soil mechanics", "Sismicidad": "Seismicity", "Hidrología": "Hydrology", "Concepto": "Concept", "Diseño e interiores": "Design and interiors", "Etapa 02 · Anteproyecto": "Stage 02 · Schematic design", "Leemos el sitio y le damos forma": "We read the site and give it shape", "Estudiamos el terreno a fondo y, con esa base, definimos el concepto de diseño y la imagen objetivo del proyecto.": "We study the site in depth and, on that basis, define the design concept and the target image of the project.", "Concepto e imagen objetivo": "Concept and target image", "Diseño arquitectónico e interiores": "Architectural and interior design", "PROYECTO": "DESIGN DEVELOPMENT", "Estructural": "Structural", "Eléctrica": "Electrical", "Hidrosanitaria": "Plumbing", "Electromecánica": "Electromechanical", "Etapa 03 · Proyecto": "Stage 03 · Design development", "La ingeniería completa, antes de mover tierra": "Full engineering, before breaking ground", "Los ingenieros del grupo desarrollan todas las disciplinas sobre el mismo diseño, según el Reglamento Nacional de la Construcción.": "Our engineers develop every discipline on the same design, in line with Nicaragua's National Building Code.", "Ingeniería estructural": "Structural engineering", "Ingeniería eléctrica": "Electrical engineering", "Ingeniería hidrosanitaria": "Plumbing engineering", "Ingeniería electromecánica": "Electromechanical engineering", "GESTIÓN": "MANAGEMENT", "Cronograma": "Schedule", "Supervisión": "Supervision", "Administración": "Administration", "Planos as built": "As-built drawings", "Etapa 04 · Gestión": "Stage 04 · Management", "La obra, tal como se dibujó": "Built exactly as drawn", "Presupuestamos, programamos y dirigimos la construcción hasta la entrega, y le dejamos los planos de cómo quedó construida.": "We budget, schedule and manage construction through to handover, and give you drawings of the building as built.", "Administración de obra": "Construction administration", "Seguimiento (planos as built)": "Follow-up (as-built drawings)", "Obras seleccionadas": "Selected work", "Cada ficha muestra la ubicación, el área y el año. Aquí van las fotos y los renders reales de cada proyecto.": "Each card shows location, area and year. Real photos and renders of each project go here.", "FOTO / RENDER DEL PROYECTO": "PROJECT PHOTO / RENDER", "FOTO / RENDER": "PHOTO / RENDER", "Zonas urbanas · Residencial": "Urban development · Residential", "Residencia en Rancho Santana": "Rancho Santana Residence", "Casa de playa en la costa del Pacífico. Aquí va el concepto, los materiales y cómo responde al sol y al viento del sitio.": "A beach house on the Pacific coast. This is where the concept, the materials and how it responds to the site's sun and wind will go.", "Zonas urbanas · Comercial": "Urban development · Commercial", "Nombre del proyecto": "Project name", "Espacio para un segundo proyecto destacado.": "Space for a second featured project.", "Equipamientos · Educación": "Facilities · Education", "Descripción breve del proyecto.": "Short project description.", "Infraestructura · Puentes": "Infrastructure · Bridges", "Urbanismo · Diagnóstico urbano": "Urban planning · Urban assessment", "Un diagnóstico o plan urbano que muestre la escala de ciudad.": "An urban assessment or plan that shows our city-scale work.", "Siga bajando": "Keep scrolling", "Para instituciones y empresas que contratan por concurso": "For institutions and companies that hire through tenders", "Participamos en licitaciones públicas y privadas de diseño, construcción, supervisión y consultoría.": "We bid on public and private tenders for design, construction, supervision and consulting.", "Si su empresa u organismo prepara un concurso,": "If your company or organization is preparing a tender,", "invítenos": "invite us", ". Podemos presentarnos como firma o en consorcio, y le enviamos nuestra documentación legal y técnica en el formato que pida el pliego.": ". We can bid as a firm or as a consortium, and we will send our legal and technical documents in the format the bidding documents require.", "Nuestro equipo cubre las tres disciplinas que piden la mayoría de los términos de referencia: arquitectura, ingeniería civil y dirección de obra.": "Our team covers the three disciplines most terms of reference ask for: architecture, civil engineering and construction management.", "Invitar a un concurso": "Invite us to a tender", "Currículum de la firma y de cada socio": "Firm and partner CVs", "Experiencia comprobable por proyecto": "Verifiable project experience", "Registro de proveedor del Estado (SISCAE)": "Government supplier registration (SISCAE)", "Licencias profesionales vigentes": "Current professional licenses", "Constancias de solvencia fiscal y municipal": "Tax and municipal compliance certificates", "Cinco socios, un mismo norte": "Five partners, one north", "Nos formamos en la Universidad Nacional de Ingeniería, en Managua. Unimos la arquitectura y la ingeniería en un solo grupo para que cada proyecto tenga diseño, cálculo y obra bajo la misma responsabilidad.": "We trained at the National University of Engineering in Managua. We brought architecture and engineering together in one group so that every project has design, engineering and construction under one responsibility.", "Socio · cargo": "Partner · role", "La universidad donde se formaron los cinco socios": "The university where all five partners trained", "Arquitectura, ingeniería y construcción en un equipo": "Architecture, engineering and construction in one team", "Todo el país": "Nationwide", "Del Pacífico al Caribe, en obra privada y pública": "From the Pacific to the Caribbean, private and public work", "Cuéntanos de tu proyecto": "Tell us about your project", "Te respondemos en menos de 24 horas. La primera reunión no tiene costo.": "We reply within 24 hours. The first meeting is free.", "Correo": "Email", "Oficina": "Office", "Nombre": "Name", "Teléfono / WhatsApp": "Phone / WhatsApp", "Tipo de proyecto": "Project type", "Agua potable y drenaje": "Water and drainage", "Energía eléctrica": "Power", "Diagnóstico o plan urbano": "Urban assessment or plan", "Licitación": "Tender", "Otro": "Other", "Ubicación del terreno": "Site location", "Lo antes posible": "As soon as possible", "En 3 a 6 meses": "In 3 to 6 months", "En 6 a 12 meses": "In 6 to 12 months", "Más de un año": "More than a year", "Aún no lo sé": "Not sure yet", "Presupuesto aproximado": "Approximate budget", "Menos de US$ 50,000": "Under US$ 50,000", "US$ 50,000 a 150,000": "US$ 50,000 to 150,000", "US$ 150,000 a 500,000": "US$ 150,000 to 500,000", "Más de US$ 500,000": "Over US$ 500,000", "Prefiero conversarlo": "I'd rather discuss it", "Enviar mensaje": "Send message", "Esto es un prototipo: en la versión publicada, el mensaje llegará al correo y al WhatsApp del grupo.": "This is a prototype: on the live site, your message will reach the group's email and WhatsApp.", "12°08′N · 86°15′O · Managua, Nicaragua": "12°08′N · 86°15′W · Managua, Nicaragua", "PH:Tu nombre": "Your name", "PH:Ciudad o departamento": "City or department", "PH:¿Cómo lo quiere? Área aproximada, número de ambientes, estilo…": "How do you want it? Approximate area, number of rooms, style…", "OG:Equipamientos urbanos": "Public facilities", "OG:Zonas urbanas": "Urban development", "OG:Infraestructura": "Infrastructure", "OG:Urbanismo": "Urban planning", "AL:Grupo Doce Norte, inicio": "Grupo Doce Norte, home", "AL:Secciones": "Sections", "AL:Idioma": "Language", "AL:Documentación disponible": "Available documents", "AL:Escríbenos por WhatsApp": "Message us on WhatsApp", "Grupo Doce Norte · Web": "Grupo Doce Norte · Web"}, curLang='es';
+  function applyLang(lang){
+    curLang=lang; root.lang=lang;
+    var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){return n.parentElement.closest('script,style')?2:1}}), n;
+    while(n=w.nextNode()){
+      if(n._es===undefined){var t=n.nodeValue.trim(); if(!t||!I18N[t])continue; n._es=n.nodeValue;}
+      var k=n._es.trim(); n.nodeValue=lang==='en'?n._es.replace(k,I18N[k]):n._es;
+    }
+    document.querySelectorAll('[placeholder]').forEach(function(e){if(e._es===undefined)e._es=e.placeholder;var v=I18N['PH:'+e._es];e.placeholder=lang==='en'&&v?v:e._es});
+    document.querySelectorAll('optgroup').forEach(function(e){if(e._es===undefined)e._es=e.label;var v=I18N['OG:'+e._es];e.label=lang==='en'&&v?v:e._es});
+    document.querySelectorAll('[aria-label]').forEach(function(e){if(e._es===undefined)e._es=e.getAttribute('aria-label');var v=I18N['AL:'+e._es];e.setAttribute('aria-label',lang==='en'&&v?v:e._es)});
+    var b=document.getElementById('lang'); b.innerHTML=lang==='en'?'ES / <b>EN</b>':'<b>ES</b> / EN';
+    try{localStorage.setItem('dn-lang',lang)}catch(e){}
+    layout(); buildFlow(); onScroll();
+  }
+  document.getElementById('lang').addEventListener('click',function(){applyLang(curLang==='es'?'en':'es')});
+  try{if(localStorage.getItem('dn-lang')==='en')applyLang('en')}catch(e){}
+})();
+</script>
+
+</body>
+</html>
