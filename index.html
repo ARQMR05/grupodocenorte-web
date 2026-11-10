@@ -24,6 +24,9 @@
 <meta name="theme-color" content="#1E2124">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://grupodocenorte.com/">
+<link rel="alternate" hreflang="es" href="https://grupodocenorte.com/">
+<link rel="alternate" hreflang="en" href="https://grupodocenorte.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://grupodocenorte.com/">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["ProfessionalService", "GeneralContractor"], "@id": "https://grupodocenorte.com/#empresa", "name": "Grupo Doce Norte AEC", "alternateName": "Doce Norte", "description": "Empresa nicaragüense de arquitectura, ingeniería y construcción. Diseño arquitectónico, cálculo estructural, ingenierías, presupuestos, supervisión, consultorías y estudios de factibilidad.", "url": "https://grupodocenorte.com/", "logo": "https://grupodocenorte.com/favicon.svg", "image": "https://grupodocenorte.com/og-image.png", "address": {"@type": "PostalAddress", "addressLocality": "Managua", "addressRegion": "Managua", "addressCountry": "NI"}, "geo": {"@type": "GeoCoordinates", "latitude": 12.1364, "longitude": -86.2514}, "areaServed": {"@type": "Country", "name": "Nicaragua"}, "knowsAbout": ["Arquitectura", "Diseño arquitectónico", "Ingeniería estructural", "Ingeniería eléctrica", "Ingeniería hidrosanitaria", "Construcción", "Supervisión de obras", "Estudios de factibilidad", "Urbanismo", "Planes urbanos", "Licitaciones públicas"], "founder": [{"@type": "Person", "name": "Mario Rostran"}, {"@type": "Person", "name": "Braky Gurdian"}, {"@type": "Person", "name": "Eleazar Lopez"}, {"@type": "Person", "name": "Jorge Benavidez"}, {"@type": "Person", "name": "Jose Zamorio"}], "inLanguage": ["es", "en"]}</script>
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -868,8 +871,13 @@ footer.site .brand{color:var(--on-band)}
     try{localStorage.setItem('dn-lang',lang)}catch(e){}
     layout(); buildFlow(); onScroll();
   }
-  document.getElementById('lang').addEventListener('click',function(){applyLang(curLang==='es'?'en':'es')});
-  try{if(localStorage.getItem('dn-lang')==='en')applyLang('en')}catch(e){}
+  var onSite=/grupodocenorte\.com$|github\.io$/.test(location.hostname), enPath=/^\/en(\/|$)/.test(location.pathname);
+  document.getElementById('lang').addEventListener('click',function(){
+    var to=curLang==='es'?'en':'es';
+    if(onSite){try{localStorage.setItem('dn-lang',to)}catch(e){} location.href=(to==='en'?'/en/':'/')+location.hash; return;}
+    applyLang(to)});
+  if(enPath)applyLang('en');
+  else if(!onSite){try{if(localStorage.getItem('dn-lang')==='en')applyLang('en')}catch(e){}}
 })();
 </script>
 
